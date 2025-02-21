@@ -163,7 +163,7 @@ namespace Library_Management_System
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.BackgroundImage = Image.FromFile("C:\\Users\\MasterG\\Downloads\\Library-Management-System\\Library-Management-System\\6607.jpg");
+			this.BackgroundImage = Image.FromFile("C:\\Users\\MasterG\\Downloads\\Library-Management-System\\Library-Management-System\\library.jpg");
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1245, 793);
             this.Controls.Add(this.menuStrip1);

@@ -1,14 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
 
 namespace Library_Management_System
 {
@@ -17,6 +9,10 @@ namespace Library_Management_System
         public AddStudent()
         {
             InitializeComponent();
+			
+			this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+			this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+			this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -31,47 +27,60 @@ namespace Library_Management_System
         {
             txtName.Clear();
             txtEnrollment.Clear();
-            txtDepartment.Clear();
             txtEmail.Clear();
-            txtSemester.Clear();
             txtContact.Clear();
+            txtSex.Clear();
+            txtNIC.Clear();
+            txtAddress.Clear();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (txtName.Text != "" && txtEnrollment.Text != "" && txtDepartment.Text != "" && txtSemester.Text != "" && txtContact.Text!= "" && txtEmail.Text != "")
+            if (txtName.Text != "" && txtEnrollment.Text != "" && txtContact.Text != "" &&
+                txtEmail.Text != "" && txtSex.Text != "" && txtNIC.Text != "" && txtAddress.Text != "")
             {
+                try
+                {
+                    String name = txtName.Text;
+                    String enroll = txtEnrollment.Text;
+                    Int64 mobile = Int64.Parse(txtContact.Text);
+                    String email = txtEmail.Text;
+                    String sex = txtSex.Text;
+                    String nic = txtNIC.Text;
+                    String address = txtAddress.Text;
 
-                String name = txtName.Text;
-                String enroll = txtEnrollment.Text;
-                String dep = txtDepartment.Text;
-                String sem = txtSemester.Text;
-                Int64 mobile = Int64.Parse(txtContact.Text);
-                String email = txtEmail.Text;
+                    using (SqlConnection con = new SqlConnection("Server=localhost;Database=library;Integrated Security=True;TrustServerCertificate=True;"))
+                    {
+                        string query = "INSERT INTO NewStudent (sname, enroll, contact, email, sex, nic, address) " +
+                                       "VALUES (@name, @enroll, @mobile, @email, @sex, @nic, @address)";
 
-                SqlConnection con = new SqlConnection();
-                con.ConnectionString = "Server=localhost;Database=library;Integrated Security=True;TrustServerCertificate=True;";
-                SqlCommand cmd = new SqlCommand();
-                cmd.Connection = con;
+                        using (SqlCommand cmd = new SqlCommand(query, con))
+                        {
+                            cmd.Parameters.AddWithValue("@name", name);
+                            cmd.Parameters.AddWithValue("@enroll", enroll);
+                            cmd.Parameters.AddWithValue("@mobile", mobile);
+                            cmd.Parameters.AddWithValue("@email", email);
+                            cmd.Parameters.AddWithValue("@sex", sex);
+                            cmd.Parameters.AddWithValue("@nic", nic);
+                            cmd.Parameters.AddWithValue("@address", address);
 
-                con.Open();
-                cmd.CommandText = "insert into NewStudent (sname,enroll,dep,sem,contact,email) values ('" + name + "','" + enroll + "','" + dep + "','" + sem + "'," + mobile + ",'" + email + "')";
-                cmd.ExecuteNonQuery();
-                con.Close();
+                            con.Open();
+                            cmd.ExecuteNonQuery();
+                            con.Close();
+                        }
+                    }
 
-                MessageBox.Show("Data has been Saved.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                txtName.Clear();
-                txtEnrollment.Clear();
-                txtDepartment.Clear();
-                txtEmail.Clear();
-                txtSemester.Clear();
-                txtContact.Clear();
+                    MessageBox.Show("Data has been Saved.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    btnRefresh_Click(sender, e); // Clear fields after saving
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-
             else
             {
-                MessageBox.Show("Please Fill Empty Field(s)!","Suggestion",MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Please Fill Empty Field(s)!", "Suggestion", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
     }
