@@ -45,16 +45,13 @@
             this.comboBoxBooks = new System.Windows.Forms.ComboBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtContact = new System.Windows.Forms.TextBox();
-            this.txtSem = new System.Windows.Forms.TextBox();
-            this.txtDep = new System.Windows.Forms.TextBox();
+            
             this.txtName = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -188,16 +185,13 @@
             this.panel3.Controls.Add(this.comboBoxBooks);
             this.panel3.Controls.Add(this.txtEmail);
             this.panel3.Controls.Add(this.txtContact);
-            this.panel3.Controls.Add(this.txtSem);
-            this.panel3.Controls.Add(this.txtDep);
+            
             this.panel3.Controls.Add(this.txtName);
             this.panel3.Controls.Add(this.label10);
             this.panel3.Controls.Add(this.label9);
             this.panel3.Controls.Add(this.label8);
             this.panel3.Controls.Add(this.label7);
             this.panel3.Controls.Add(this.label6);
-            this.panel3.Controls.Add(this.label5);
-            this.panel3.Controls.Add(this.label4);
             this.panel3.Controls.Add(this.label3);
             this.panel3.Location = new System.Drawing.Point(405, 197);
             this.panel3.Name = "panel3";
@@ -222,6 +216,9 @@
             this.dateTimePicker.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+			this.dateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+			this.dateTimePicker.CustomFormat = "dd MM yyyy";
+
             this.dateTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker.Location = new System.Drawing.Point(271, 432);
             this.dateTimePicker.Name = "dateTimePicker";
@@ -267,27 +264,11 @@
             // 
             // txtSem
             // 
-            this.txtSem.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSem.Location = new System.Drawing.Point(271, 174);
-            this.txtSem.Name = "txtSem";
-            this.txtSem.ReadOnly = true;
-            this.txtSem.Size = new System.Drawing.Size(330, 24);
-            this.txtSem.TabIndex = 10;
+           
             // 
             // txtDep
             // 
-            this.txtDep.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtDep.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDep.Location = new System.Drawing.Point(271, 112);
-            this.txtDep.Name = "txtDep";
-            this.txtDep.ReadOnly = true;
-            this.txtDep.Size = new System.Drawing.Size(330, 24);
-            this.txtDep.TabIndex = 9;
+            
             // 
             // txtName
             // 
@@ -311,7 +292,7 @@
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(427, 19);
             this.label10.TabIndex = 7;
-            this.label10.Text = "Maximum 3 Books can be issued to a particular Student";
+            this.label10.Text = "Maximum  Books can be issued to a particular Student";
             // 
             // label9
             // 
@@ -341,7 +322,7 @@
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(177, 24);
             this.label7.TabIndex = 4;
-            this.label7.Text = "Student KIIT Mail ID";
+            this.label7.Text = "Student's Email";
             // 
             // label6
             // 
@@ -355,24 +336,8 @@
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(39, 176);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(158, 24);
-            this.label5.TabIndex = 2;
-            this.label5.Text = "Student Semester";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(39, 114);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(112, 24);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "Department";
-            // 
+           
+            //
             // label3
             // 
             this.label3.AutoSize = true;
@@ -422,8 +387,7 @@
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Button btnRefresh;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
+       
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
@@ -433,8 +397,7 @@
         private System.Windows.Forms.ComboBox comboBoxBooks;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.TextBox txtContact;
-        private System.Windows.Forms.TextBox txtSem;
-        private System.Windows.Forms.TextBox txtDep;
+        
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Button btnIssueBook;
     }

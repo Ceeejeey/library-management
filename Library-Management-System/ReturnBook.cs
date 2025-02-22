@@ -61,8 +61,8 @@ namespace Library_Management_System
             if (dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
             {
                 rowid = Int64.Parse(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
-                bname = dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString();
-                bdate = dataGridView1.Rows[e.RowIndex].Cells[8].Value.ToString();
+                bname = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
+                bdate = dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString();
             }
             txtBookName.Text = bname;
             txtBookIssueDate.Text = bdate;
